@@ -59,7 +59,7 @@ public class AlapMuv {
         statisztika();
     } 
 
-    private static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
+    public static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
         int c;
         if (a < b) {
             c = a;
@@ -70,7 +70,7 @@ public class AlapMuv {
     }
     
     
-    private static boolean Oszhato_E_Nem_Maradekosan_Osztasnal(int a, int b) {
+    public static boolean Oszhato_E_Nem_Maradekosan_Osztasnal(int a, int b) {
         int c;
         if (a < b) {
             c = a;
@@ -86,7 +86,7 @@ public class AlapMuv {
     }
     
     
-    private static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
+    public static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
         if (100 < a * b) {
             return false;
         }
