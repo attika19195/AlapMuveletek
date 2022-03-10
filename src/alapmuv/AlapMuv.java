@@ -14,6 +14,7 @@ public class AlapMuv {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Scanner isc = new Scanner(System.in);
         System.out.print("Szia! Hogy hívnak? ");
 
         jatekosNev = sc.nextLine();
@@ -24,7 +25,7 @@ public class AlapMuv {
 
         while (ujKor) {
             System.out.print("Milyen műveletet szeretnél gyakorolni? [1] összeadás, [2] kivonás, [3] szorzás, [4] osztás: ");
-            int jatekszama = sc.nextInt();
+            int jatekszama = isc.nextInt();
             if (jatekszama == 1) {
                 System.out.println("Kezdődjön az összeadás!");
             } else if (jatekszama == 2) {
@@ -39,16 +40,17 @@ public class AlapMuv {
             System.out.print("Szeretnél még egy kört? (I/N): ");
             String valasz = sc.nextLine();
             valasz = valasz.toUpperCase();
-            if (valasz != "N" || valasz != "I") {
-                while (valasz != "N" || valasz != "I") {
-                    valasz = sc.nextLine();
-                }
+
+            while (!valasz.equals("N")&& !valasz.equals("I")) {
+                System.out.print("Nem jót írtál be, újra: (I/N): ");
+                valasz = sc.nextLine();
+                valasz = valasz.toUpperCase();
+            }
+
+            if (valasz.equals("N") )  {
+                ujKor = false;
             } else {
-                if (valasz == "N") {
-                    ujKor = false;
-                } else {
-                    ujKor = true;
-                }
+                ujKor = true;
             }
 
         }
@@ -56,8 +58,12 @@ public class AlapMuv {
     }
 
     public static void statisztika() {
+        double szazalek = 0.0;
         int osszesValasz = joValasz + rosszValasz;
-        double szazalek = (rosszValasz / joValasz) * 100.0;
+        if (joValasz != 0) {
+            szazalek = ((double)joValasz / osszesValasz) * 100.0;
+        }
+        
         String atment = "Gratulálok elértél egy eléggé jó százalékot, szerintem nem szükséges további gyakorlás";
         if (szazalek < 80.0) {
             atment = "Sajnos ez még nem lesz elég, gyakorolj még egy picit.";
@@ -102,6 +108,11 @@ public class AlapMuv {
                 //kivonás
                 a = rnd.nextInt(100) + 1;
                 b = rnd.nextInt(100) + 1;
+                if (a < b) {
+                    c = a;
+                    a = b;
+                    b = c;
+                }
                 System.out.printf("%d - %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a - b) {
