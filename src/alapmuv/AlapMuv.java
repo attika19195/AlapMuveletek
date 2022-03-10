@@ -12,10 +12,6 @@ public class AlapMuv {
     static Scanner sc = new Scanner(System.in);
     static int a, b, valasz;
 
-    public static void main(String[] args) {
-        statisztika();
-    }
-
     public static void statisztika() {
         String jatekosNev = "Marikanéni";
         int osszesValasz = joValasz + rosszValasz;
@@ -119,11 +115,7 @@ public class AlapMuv {
 
     }
 
-<<<<<<< HEAD
     public static void main(String[] args) {
-        statisztika(1);
-
-        String pulloldle;
         Scanner sc = new Scanner(System.in);
         System.out.print("Szia! Hogy hívnak? ");
 
@@ -146,20 +138,21 @@ public class AlapMuv {
                 System.out.println("Indulhat az osztás!");
             }
             muvelet(jatekszama);
-            
+
             System.out.print("Szeretnél még egy kört? (I/N): ");
             String valasz = sc.nextLine();
-            if(valasz == "N"){
+            if (valasz == "N") {
                 ujKor = false;
             }
         } while (ujKor);
-=======
+    }
+
     public static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
         if (100 < a * b) {
             return false;
         }
         return true;
->>>>>>> 66cd8baf6881d3f7b7bf3527f76df0b622d71996
 
     }
+
 }
