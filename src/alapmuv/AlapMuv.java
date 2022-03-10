@@ -28,6 +28,17 @@ public class AlapMuv {
                 rosszValasz++;
             }
         }
+        if (muveletSzam == 2) { //kivonás
+            a = rnd.nextInt(100) + 1;
+            b = rnd.nextInt(100) + 1;
+            System.out.printf("%d - %d = \n", a, b);
+            valasz = sc.nextInt();
+            if (valasz == a - b) {
+                joValasz++;
+            } else {
+                rosszValasz++;
+            }
+        }
         if (muveletSzam == 3) { //szorzás
             a = rnd.nextInt(100) + 1;
             b = rnd.nextInt(100) + 1;
@@ -39,6 +50,7 @@ public class AlapMuv {
                 rosszValasz++;
             }
         }
+
     }
 
     public static void main(String[] args) {
