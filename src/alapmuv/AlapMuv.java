@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class AlapMuv {
-
     static int joValasz = 0;
     static int rosszValasz = 0;
     static Random rnd = new Random();
@@ -45,4 +44,30 @@ public class AlapMuv {
     public static void main(String[] args) {
         statisztika(1);
     }
+    private static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
+        int c;
+        if (a < b) {
+            c = a;
+            a = b;
+            b = c;
+        }
+
+    }
+    
+    
+    private static boolean Oszhato_E_Nem_Maradekosan_Osztasnal(int a, int b) {
+        int c;
+        if (a < b) {
+            c = a;
+            a = b;
+            b = c;
+        }else{
+            if(a%b==0){
+                return true;
+            }    
+        }
+        return false;
+
+    }
 }
+     
