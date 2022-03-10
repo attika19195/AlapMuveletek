@@ -12,6 +12,41 @@ public class AlapMuv {
     static Scanner sc = new Scanner(System.in);
     static int a, b, valasz;
 
+<<<<<<< HEAD
+=======
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Szia! Hogy hívnak? ");
+
+        jatekosNev = sc.nextLine();
+        System.out.println("Üdvözöllek kedves " + jatekosNev);
+
+        System.out.println("Ez a játék segít neked megtanulni a matematika 4 alap műveletét");
+        boolean ujKor = true;
+
+        do {
+            System.out.print("Milyen műveletet szeretnél gyakorolni? [1] összeadás, [2] kivonás, [3] szorzás, [4] osztás: ");
+            int jatekszama = sc.nextInt();
+            if (jatekszama == 1) {
+                System.out.println("Kezdődjön az összeadás!");
+            } else if (jatekszama == 2) {
+                System.out.println("Indulhat a kivonás!");
+            } else if (jatekszama == 3) {
+                System.out.println("Szorzás! Egyszerű mint az egyszer egy!");
+            } else {
+                System.out.println("Indulhat az osztás!");
+            }
+            muvelet(jatekszama);
+
+            System.out.print("Szeretnél még egy kört? (I/N): ");
+            String valasz = sc.nextLine();
+            if (valasz == "N") {
+                ujKor = false;
+            }
+        } while (ujKor);
+    }
+
+>>>>>>> 68a0c4d6a0fd23af5a7bfd2c1555f1639aba74a1
     public static void statisztika() {
         String jatekosNev = "Marikanéni";
         int osszesValasz = joValasz + rosszValasz;
@@ -38,6 +73,12 @@ public class AlapMuv {
                 //összeadás
                 a = rnd.nextInt(100) + 1;
                 b = rnd.nextInt(100) + 1;
+                int c;
+                if (a < b) {
+                    c = a;
+                    a = b;
+                    b = c;
+                }
                 System.out.printf("%d + %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a + b) {
@@ -60,8 +101,12 @@ public class AlapMuv {
                 break;
             case 3:
                 //szorzás
-                a = rnd.nextInt(100) + 1;
-                b = rnd.nextInt(100) + 1;
+                do {
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+
+                } while (!Nagyobb_E_Mint_100_Szorzasnal(a, b));
+
                 System.out.printf("%d * %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a * b) {
@@ -73,8 +118,11 @@ public class AlapMuv {
 
             case 4:
                 //osztás
-                a = rnd.nextInt(100) + 1;
-                b = rnd.nextInt(100) + 1;
+                do {
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+                } while (!Oszhato_E_Nem_Maradekosan_Osztasnal(a, b));
+
                 System.out.printf("%d : %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a / b) {
@@ -83,38 +131,6 @@ public class AlapMuv {
                     rosszValasz++;
                 }
 
-                if (muveletSzam == 1) { //összeadás
-                    a = rnd.nextInt(100) + 1;
-                    b = rnd.nextInt(100) + 1;
-                    System.out.printf("%d + %d = \n", a, b);
-                    valasz = sc.nextInt();
-                    if (valasz == a + b) {
-                        joValasz++;
-                    } else {
-                        rosszValasz++;
-                    }
-                }
-                if (muveletSzam == 3) { //szorzás
-                    a = rnd.nextInt(100) + 1;
-                    b = rnd.nextInt(100) + 1;
-                    System.out.printf("%d * %d = \n", a, b);
-                    valasz = sc.nextInt();
-                    if (valasz == a * b) {
-                        joValasz++;
-                    } else {
-                        rosszValasz++;
-                    }
-
-                }
-        }
-    }
-
-    public static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
-        int c;
-        if (a < b) {
-            c = a;
-            a = b;
-            b = c;
         }
 
     }
@@ -134,6 +150,7 @@ public class AlapMuv {
 
     }
 
+<<<<<<< HEAD
     public static void main(String[] args) {
         
 
@@ -180,11 +197,18 @@ public class AlapMuv {
         statisztika();
     }
 
+=======
+>>>>>>> 68a0c4d6a0fd23af5a7bfd2c1555f1639aba74a1
     public static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
         if (100 < a * b) {
             return false;
         }
         return true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 68a0c4d6a0fd23af5a7bfd2c1555f1639aba74a1
     }
+
 }
 
