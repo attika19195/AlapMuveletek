@@ -11,10 +11,14 @@ public class AlapMuv {
     static Scanner sc = new Scanner(System.in);
     static int a, b, valasz;
 
+    public static void statisztika(int a) {
+
+    }
+
     private static void muvelet(int muveletSzam) {
         int a, b, valasz;
 
-        if (muveletSzam == 1) {
+        if (muveletSzam == 1) { //összeadás
             a = rnd.nextInt(100) + 1;
             b = rnd.nextInt(100) + 1;
             System.out.printf("%d + %d = \n", a, b);
@@ -25,10 +29,20 @@ public class AlapMuv {
                 rosszValasz++;
             }
         }
+        if (muveletSzam == 3) { //szorzás
+            a = rnd.nextInt(100) + 1;
+            b = rnd.nextInt(100) + 1;
+            System.out.printf("%d * %d = \n", a, b);
+            valasz = sc.nextInt();
+            if (valasz == a * b) {
+                joValasz++;
+            } else {
+                rosszValasz++;
+            }
+        }
     }
 
     public static void main(String[] args) {
-        String pulloldle;
+        statisztika(1);
     }
-
 }
