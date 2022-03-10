@@ -81,5 +81,15 @@ public class AlapMuv {
         return false;
 
     }
+    
+    
+    private static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
+        if (100 < a * b) {
+            return false;
+        }
+        return true;
+            
+
+    }
 }
      
