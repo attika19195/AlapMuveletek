@@ -14,6 +14,7 @@ public class AlapMuv {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Scanner isc = new Scanner(System.in);
         System.out.print("Szia! Hogy hívnak? ");
 
         jatekosNev = sc.nextLine();
@@ -24,14 +25,14 @@ public class AlapMuv {
 
         do {
             System.out.print("Milyen műveletet szeretnél gyakorolni? [1] összeadás, [2] kivonás, [3] szorzás, [4] osztás: ");
-            int jatekszama = sc.nextInt();
+            int jatekszama = isc.nextInt();
             if (jatekszama == 1) {
                 System.out.println("Kezdődjön az összeadás!");
             } else if (jatekszama == 2) {
                 System.out.println("Indulhat a kivonás!");
             } else if (jatekszama == 3) {
                 System.out.println("Szorzás! Egyszerű mint az egyszer egy!");
-            } else {
+            } else if (jatekszama == 4) {
                 System.out.println("Indulhat az osztás!");
             }
             muvelet(jatekszama);
@@ -42,10 +43,10 @@ public class AlapMuv {
                 ujKor = false;
             }
         } while (ujKor);
+        statisztika();
     }
 
     public static void statisztika() {
-        String jatekosNev = "Marikanéni";
         int osszesValasz = joValasz + rosszValasz;
         double szazalek = (rosszValasz / joValasz) * 100;
         String atment = "Gratulálok elértél egy eléggé jó százalékot, szerintem nem szükséges további gyakorlás";
@@ -70,6 +71,10 @@ public class AlapMuv {
                 //összeadás
                 a = rnd.nextInt(100) + 1;
                 b = rnd.nextInt(100) + 1;
+                while (a + b > 100) {
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+                }
                 int c;
                 if (a < b) {
                     c = a;
@@ -127,7 +132,8 @@ public class AlapMuv {
                 } else {
                     rosszValasz++;
                 }
-
+            default:
+                break;
         }
 
     }
