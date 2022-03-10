@@ -11,6 +11,7 @@ public class AlapMuv {
     static int a, b, valasz;
     
     public static void statisztika(){
+        String jatekosNev = "Marikanéni";
         int osszesValasz = joValasz + rosszValasz;
         double szazalek = (rosszValasz / joValasz) * 100;
         String atment = "Gratulálok elértél egy eléggé jó százalékot, szerintem nem szükséges további gyakorlás";
