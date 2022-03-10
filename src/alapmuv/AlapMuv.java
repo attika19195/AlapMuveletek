@@ -41,6 +41,12 @@ public class AlapMuv {
                 //összeadás
                 a = rnd.nextInt(100) + 1;
                 b = rnd.nextInt(100) + 1;
+                int c;
+                if (a < b) {
+                    c = a;
+                    a = b;
+                    b = c;
+                }
                 System.out.printf("%d + %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a + b) {
@@ -63,8 +69,12 @@ public class AlapMuv {
                 break;
             case 3:
                 //szorzás
-                a = rnd.nextInt(100) + 1;
-                b = rnd.nextInt(100) + 1;
+                do {
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+
+                } while (!Nagyobb_E_Mint_100_Szorzasnal(a, b));
+
                 System.out.printf("%d * %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a * b) {
@@ -76,8 +86,11 @@ public class AlapMuv {
 
             case 4:
                 //osztás
-                a = rnd.nextInt(100) + 1;
-                b = rnd.nextInt(100) + 1;
+                do {
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+                } while (!Oszhato_E_Nem_Maradekosan_Osztasnal(a, b));
+
                 System.out.printf("%d : %d = \n", a, b);
                 valasz = sc.nextInt();
                 if (valasz == a / b) {
@@ -86,38 +99,6 @@ public class AlapMuv {
                     rosszValasz++;
                 }
 
-                if (muveletSzam == 1) { //összeadás
-                    a = rnd.nextInt(100) + 1;
-                    b = rnd.nextInt(100) + 1;
-                    System.out.printf("%d + %d = \n", a, b);
-                    valasz = sc.nextInt();
-                    if (valasz == a + b) {
-                        joValasz++;
-                    } else {
-                        rosszValasz++;
-                    }
-                }
-                if (muveletSzam == 3) { //szorzás
-                    a = rnd.nextInt(100) + 1;
-                    b = rnd.nextInt(100) + 1;
-                    System.out.printf("%d * %d = \n", a, b);
-                    valasz = sc.nextInt();
-                    if (valasz == a * b) {
-                        joValasz++;
-                    } else {
-                        rosszValasz++;
-                    }
-
-                }
-        }
-    }
-
-    public static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
-        int c;
-        if (a < b) {
-            c = a;
-            a = b;
-            b = c;
         }
 
     }
