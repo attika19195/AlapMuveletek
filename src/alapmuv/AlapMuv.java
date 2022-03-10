@@ -6,20 +6,16 @@ import java.util.Random;
 public class AlapMuv {
 
     static String jatekosNev;
-    static int joValasz = 0;
-    static int rosszValasz = 0;
+    static int joValasz;
+    static int rosszValasz;
     static Random rnd = new Random();
     static Scanner sc = new Scanner(System.in);
     static int a, b, valasz;
 
-    public static void main(String[] args) {
-        statisztika();
-    }
-
     public static void statisztika() {
         String jatekosNev = "Marikanéni";
         int osszesValasz = joValasz + rosszValasz;
-        double szazalek = (rosszValasz / joValasz) * 100;
+        double szazalek = (rosszValasz / joValasz) * 100.0;
         String atment = "Gratulálok elértél egy eléggé jó százalékot, szerintem nem szükséges további gyakorlás";
         if (szazalek < 80.0) {
             atment = "Sajnos ez még nem lesz elég, gyakorolj még egy picit.";
@@ -138,9 +134,8 @@ public class AlapMuv {
 
     }
 
-<<<<<<< HEAD
     public static void main(String[] args) {
-        statisztika(1);
+        
 
         String pulloldle;
         Scanner sc = new Scanner(System.in);
@@ -152,7 +147,7 @@ public class AlapMuv {
         System.out.println("Ez a játék segít neked megtanulni a matematika 4 alap műveletét");
         boolean ujKor = true;
 
-        do {
+        while(ujKor) {
             System.out.print("Milyen műveletet szeretnél gyakorolni? [1] összeadás, [2] kivonás, [3] szorzás, [4] osztás: ");
             int jatekszama = sc.nextInt();
             if (jatekszama == 1) {
@@ -165,20 +160,31 @@ public class AlapMuv {
                 System.out.println("Indulhat az osztás!");
             }
             muvelet(jatekszama);
-            
+
             System.out.print("Szeretnél még egy kört? (I/N): ");
             String valasz = sc.nextLine();
-            if(valasz == "N"){
-                ujKor = false;
+            valasz = valasz.toUpperCase();
+            if(valasz != "N" || valasz != "I"){
+                while(valasz != "N" || valasz != "I"){
+                    valasz = sc.nextLine();
+                }
+            }else{
+                if (valasz == "N") {
+                    ujKor = false;
+                }else{
+                    ujKor = true;
+                }
             }
-        } while (ujKor);
-=======
+           
+        }
+        statisztika();
+    }
+
     public static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
         if (100 < a * b) {
             return false;
         }
         return true;
->>>>>>> 66cd8baf6881d3f7b7bf3527f76df0b622d71996
-
     }
 }
+
