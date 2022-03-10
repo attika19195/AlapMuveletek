@@ -12,49 +12,133 @@ public class AlapMuv {
     static Scanner sc = new Scanner(System.in);
     static int a, b, valasz;
 
-    public static void statisztika(int a) {
+    public static void main(String[] args) {
+        statisztika();
+    }
 
+    public static void statisztika() {
+        String jatekosNev = "Marikanéni";
+        int osszesValasz = joValasz + rosszValasz;
+        double szazalek = (rosszValasz / joValasz) * 100;
+        String atment = "Gratulálok elértél egy eléggé jó százalékot, szerintem nem szükséges további gyakorlás";
+        if (szazalek < 80.0) {
+            atment = "Sajnos ez még nem lesz elég, gyakorolj még egy picit.";
+        }
+        System.out.println("------------------------------------------------------------");
+        System.out.printf("%s játékos statisztikái:\n", jatekosNev);
+        System.out.printf("Az összes kérdés amit megpróbáltál megválaszolni:\t%d\n", osszesValasz);
+        System.out.printf("\t Ebből jó válaszok száma:\t%d\n", joValasz);
+        System.out.printf("\t Ebből rossz válaszok száma:\t%d\n", rosszValasz);
+        System.out.printf("\t\t És az elért százalékod:\t%.1f\n", szazalek);
+        System.out.printf("%s\n", atment);
+        System.out.println("------------------------------------------------------------");
     }
 
     private static void muvelet(int muveletSzam) {
         int a, b, valasz;
 
-        if (muveletSzam == 1) { //összeadás
-            a = rnd.nextInt(100) + 1;
-            b = rnd.nextInt(100) + 1;
-            System.out.printf("%d + %d = \n", a, b);
-            valasz = sc.nextInt();
-            if (valasz == a + b) {
-                joValasz++;
-            } else {
-                rosszValasz++;
-            }
+        switch (muveletSzam) {
+            case 1:
+                //összeadás
+                a = rnd.nextInt(100) + 1;
+                b = rnd.nextInt(100) + 1;
+                System.out.printf("%d + %d = \n", a, b);
+                valasz = sc.nextInt();
+                if (valasz == a + b) {
+                    joValasz++;
+                } else {
+                    rosszValasz++;
+                }
+                break;
+            case 2:
+                //kivonás
+                a = rnd.nextInt(100) + 1;
+                b = rnd.nextInt(100) + 1;
+                System.out.printf("%d - %d = \n", a, b);
+                valasz = sc.nextInt();
+                if (valasz == a - b) {
+                    joValasz++;
+                } else {
+                    rosszValasz++;
+                }
+                break;
+            case 3:
+                //szorzás
+                a = rnd.nextInt(100) + 1;
+                b = rnd.nextInt(100) + 1;
+                System.out.printf("%d * %d = \n", a, b);
+                valasz = sc.nextInt();
+                if (valasz == a * b) {
+                    joValasz++;
+                } else {
+                    rosszValasz++;
+                }
+                break;
+
+            case 4:
+                //osztás
+                a = rnd.nextInt(100) + 1;
+                b = rnd.nextInt(100) + 1;
+                System.out.printf("%d : %d = \n", a, b);
+                valasz = sc.nextInt();
+                if (valasz == a / b) {
+                    joValasz++;
+                } else {
+                    rosszValasz++;
+                }
+
+                if (muveletSzam == 1) { //összeadás
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+                    System.out.printf("%d + %d = \n", a, b);
+                    valasz = sc.nextInt();
+                    if (valasz == a + b) {
+                        joValasz++;
+                    } else {
+                        rosszValasz++;
+                    }
+                }
+                if (muveletSzam == 3) { //szorzás
+                    a = rnd.nextInt(100) + 1;
+                    b = rnd.nextInt(100) + 1;
+                    System.out.printf("%d * %d = \n", a, b);
+                    valasz = sc.nextInt();
+                    if (valasz == a * b) {
+                        joValasz++;
+                    } else {
+                        rosszValasz++;
+                    }
+
+                }
         }
-        if (muveletSzam == 2) { //kivonás
-            a = rnd.nextInt(100) + 1;
-            b = rnd.nextInt(100) + 1;
-            System.out.printf("%d - %d = \n", a, b);
-            valasz = sc.nextInt();
-            if (valasz == a - b) {
-                joValasz++;
-            } else {
-                rosszValasz++;
-            }
-        }
-        if (muveletSzam == 3) { //szorzás
-            a = rnd.nextInt(100) + 1;
-            b = rnd.nextInt(100) + 1;
-            System.out.printf("%d * %d = \n", a, b);
-            valasz = sc.nextInt();
-            if (valasz == a * b) {
-                joValasz++;
-            } else {
-                rosszValasz++;
-            }
+    }
+
+    public static void Ertek_Felcsereles_Kivonasnal(int a, int b) {
+        int c;
+        if (a < b) {
+            c = a;
+            a = b;
+            b = c;
         }
 
     }
 
+    public static boolean Oszhato_E_Nem_Maradekosan_Osztasnal(int a, int b) {
+        int c;
+        if (a < b) {
+            c = a;
+            a = b;
+            b = c;
+        } else {
+            if (a % b == 0) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+<<<<<<< HEAD
     public static void main(String[] args) {
         statisztika(1);
 
@@ -88,6 +172,13 @@ public class AlapMuv {
                 ujKor = false;
             }
         } while (ujKor);
+=======
+    public static boolean Nagyobb_E_Mint_100_Szorzasnal(int a, int b) {
+        if (100 < a * b) {
+            return false;
+        }
+        return true;
+>>>>>>> 66cd8baf6881d3f7b7bf3527f76df0b622d71996
 
     }
 }
